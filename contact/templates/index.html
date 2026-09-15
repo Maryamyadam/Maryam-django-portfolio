@@ -1,0 +1,462 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Maryam Yusuf</title>
+
+<meta
+    name="description"
+    content="Maryam Yusuf — Software Engineer and Developer building reliable software and thoughtful digital experiences."
+>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+<link rel="stylesheet" href="{% static 'contact/style.css' %}">
+```
+
+</head>
+
+<body>
+
+```
+<!-- =========================
+     NAVIGATION
+========================== -->
+
+<header class="navbar">
+
+    <a href="#home" class="logo">
+        Maryam<span>Yusuf</span>
+    </a>
+
+    <nav class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+</header>
+
+
+<main>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero" id="home">
+
+        <div class="circuit-background"></div>
+
+        <div class="hero-content">
+
+            <div class="availability">
+                <span class="status-dot"></span>
+                available for new work
+            </div>
+
+            <h1>
+                I build
+                <span>software</span>
+                that holds up under real traffic.
+            </h1>
+
+            <p class="hero-description">
+                Maryam Yusuf — software engineer and developer.
+                Django and Python on the back end, TypeScript and
+                React on the front. I care about data models,
+                latency, and interfaces that stay legible as they grow.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#work" class="button primary">
+                    View selected work
+                    <span>↗</span>
+                </a>
+
+                <a href="#contact" class="button secondary">
+                    Get in touch
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         WORK / PROJECTS
+    ========================== -->
+
+    <section class="section projects-section" id="work">
+
+        <div class="section-heading">
+
+            <div>
+                <p class="section-number">01 / work</p>
+
+                <h2>
+                    Selected work
+                </h2>
+            </div>
+
+            <p class="section-subtitle">
+                Things I've built with an unhealthy
+                amount of attention to detail.
+            </p>
+
+        </div>
+
+
+        <div class="projects-grid">
+
+            {% for project in projects %}
+
+            <article class="project-card">
+
+                <div class="project-top">
+
+                    <h3>
+                        {{ project.title }}
+                    </h3>
+
+                    <span class="project-year">
+                        {{ project.year }}
+                    </span>
+
+                </div>
+
+                <p>
+                    {{ project.description }}
+                </p>
+
+                <div class="project-result">
+                    {{ project.result }}
+                </div>
+
+                <div class="tags">
+
+                    <span>
+                        {{ project.technologies }}
+                    </span>
+
+                </div>
+
+                <div class="project-footer">
+                    <span>
+                        ↗ {{ project.role }}
+                    </span>
+                </div>
+
+            </article>
+
+            {% empty %}
+
+            <p>No projects added yet.</p>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+<!-- =========================
+     SKILLS
+========================== -->
+
+<section class="section skills-section" id="skills">
+
+    <div class="section-heading">
+
+        <div>
+
+            <p class="section-number">
+                02 / stack
+            </p>
+
+            <h2>
+                Tools I reach for
+            </h2>
+
+        </div>
+
+        <p class="section-subtitle">
+            Chosen for boring reliability first,
+            and speed second.
+        </p>
+
+    </div>
+
+
+    <div class="skills-grid">
+
+        <!-- Languages -->
+
+        <div class="skill-card">
+
+            <h3>
+                LANGUAGES
+            </h3>
+
+            <ul>
+
+                {% for skill in skills %}
+                    {% if skill.category == "Languages" %}
+                        <li>{{ skill.name }}</li>
+                    {% endif %}
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+
+        <!-- Frontend -->
+
+        <div class="skill-card">
+
+            <h3>
+                FRONTEND
+            </h3>
+
+            <ul>
+
+                {% for skill in skills %}
+                    {% if skill.category == "Frontend" %}
+                        <li>{{ skill.name }}</li>
+                    {% endif %}
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+
+        <!-- Backend -->
+
+        <div class="skill-card">
+
+            <h3>
+                BACKEND
+            </h3>
+
+            <ul>
+
+                {% for skill in skills %}
+                    {% if skill.category == "Backend" %}
+                        <li>{{ skill.name }}</li>
+                    {% endif %}
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+
+        <!-- Platform -->
+
+        <div class="skill-card">
+
+            <h3>
+                PLATFORM
+            </h3>
+
+            <ul>
+
+                {% for skill in skills %}
+                    {% if skill.category == "Platform" %}
+                        <li>{{ skill.name }}</li>
+                    {% endif %}
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section class="section about-section" id="about">
+
+        <div class="section-heading">
+
+            <div>
+
+                <p class="section-number">
+                    03 / about
+                </p>
+
+                <h2>
+                    How I work
+                </h2>
+
+            </div>
+
+            <p class="section-subtitle">
+                Small, reviewable changes. Clear data models.
+                Tests where they earn their keep.
+            </p>
+
+        </div>
+
+
+        <div class="about-content">
+
+            <p>
+                I start with the domain: what the entities are,
+                how they relate, and what invariants must never
+                break. Once the model is right, the interface
+                tends to fall out of it.
+            </p>
+
+            <p>
+                From there I ship in thin vertical slices so
+                there is always something running. I like the
+                unglamorous parts too — migrations, background
+                jobs, error budgets, and the logs you only read
+                at 2am.
+            </p>
+
+        </div>
+
+
+        <!-- Experience Timeline -->
+
+        <div class="timeline">
+
+            {% for experience in experiences %}
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+
+                    <p class="timeline-date">
+                        {{ experience.date }}
+                    </p>
+
+                    <h3>
+                        {{ experience.title }}
+                    </h3>
+
+                    <p class="company">
+                        {{ experience.company }}
+                    </p>
+
+                    <p>
+                        {{ experience.description }}
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <p>No experience added yet.</p>
+
+            {% endfor %}
+
+        </div>
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section class="contact-section" id="contact">
+
+        <div class="contact-card">
+
+            <p class="section-number">
+                04 / contact
+            </p>
+
+            <h2>
+                Have something worth
+                <br>
+                building?
+            </h2>
+
+            <p>
+                Open to engineering roles, contract work,
+                and interesting technical problems.
+            </p>
+
+            <div class="contact-buttons">
+
+                <a
+                    href="mailto:armierahh@gmail.com"
+                    class="button primary"
+                >
+                    ✉
+                    armierahh@gmail.com
+                </a>
+
+                <a
+                  href="https://github.com/Maryamyadam"
+                  class="button secondary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                   GitHub
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/in/maryam-yusuf-5a4558357"
+                    class="button secondary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                     LinkedIn
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer class="footer">
+
+    <p>
+        © 2026 Maryam Yusuf. Built from scratch.
+    </p>
+
+    <p class="footer-right">
+        designed & developed in the dark
+    </p>
+
+</footer>
+
+
+<script src="{% static 'contact/script.js' %}"></script>
+
+</body>
+</html>
